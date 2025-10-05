@@ -15,7 +15,7 @@ class Program
     private static void CategoryTest()
     {
         CategoryService categoryService = new CategoryService(new EFCategoryDal());
-        foreach (var category in categoryService.GetAll())
+        foreach (var category in categoryService.GetAll().Data)
         {
             Console.WriteLine(category.CategoryName);
         }
@@ -23,7 +23,10 @@ class Program
 
     private static void ProductTest()
     {
-        ProductService productService = new ProductService(new EFProductDal());
+        ProductService productService = new ProductService(
+            new EFProductDal(),
+            new CategoryService(new EFCategoryDal()));
+
         var result = productService.GetProductDetails();
 
         if (!result.Success)
