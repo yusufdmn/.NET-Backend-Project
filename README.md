@@ -1,2 +1,1 @@
-# .NET-Backend-Project
-.NET Backend Project
+ASP.NET Core Backend base for E-Commerce System
